@@ -1,0 +1,47 @@
+body {
+  margin: 0; }
+
+* {
+  box-sizing: border-box; }
+
+.date-range-picker {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  border: 1px solid red; }
+
+.date-period {
+  min-height: 40px;
+  margin: 0;
+  padding: 10px;
+  border-bottom: 1px solid red; }
+
+.date-picker-container {
+  display: flex;
+  flex-direction: column;
+  padding: 10px; }
+  .date-picker-container > :not(:last-child) {
+    margin-bottom: 10px; }
+
+.select-date-range {
+  display: flex; }
+  .select-date-range > * {
+    flex: 1; }
+  .select-date-range > :not(:last-child) {
+    margin-right: 10px; }
+
+input[type="date"]::-webkit-inner-spin-button {
+  display: none; }
+input[type="date"]::-webkit-calendar-picker-indicator {
+  color: transparent;
+  background: url("icon/icon-calendar.svg") center no-repeat;
+  background-size: 100%; }
+
+.buttons {
+  display: flex;
+  justify-content: flex-end; }
+  .buttons > * {
+    margin-left: 10px; }
+
+/*# sourceMappingURL=styles.css.map */

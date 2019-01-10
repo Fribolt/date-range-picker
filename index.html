@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="date-range-picker">
+    <p class="date-period">
+        <span id="from"></span> <span id="to"></span>
+    </p>
+
+    <div class="date-picker-container">
+        <select id="static-date-range" class="static-date-range">
+            <option value="custom">Custom</option>
+            <option value="today">Today</option>
+            <option value="yesterday">Yesterday</option>
+            <option value="last7Days">Last 7 days</option>
+            <option value="last30Days">Last 30 days</option>
+            <option value="last90Days">Last 90 days</option>
+        </select>
+
+        <select class="timezone">
+            <option>Timezone</option>
+        </select>
+
+        <div class="select-date-range">
+            <input type="date" id="from-date">
+
+            <input type="date" id="to-date">
+        </div>
+        <div class="buttons">
+            <button class="cancel">cancel</button>
+            <button class="apply">apply</button>
+        </div>
+    </div>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
