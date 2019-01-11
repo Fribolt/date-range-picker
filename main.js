@@ -25,38 +25,57 @@ const formatDate = {
         day: "2-digit",
     },
 };
+
 const setDateRange = (value) => {
     if (value === 'today') {
-        setDateValue(fromDateSelect, dateArrayToString(dateNow));
-        setDateValue(toDateSelect, dateArrayToString(dateNow));
+        setAttribute(fromDateSelect, 'value', dateArrayToString(dateNow));
+        setAttribute(toDateSelect, 'value', dateArrayToString(dateNow));
     }
-    setDateValue(fromDateSelect, dateArrayToString(selectedDate));
-    setDateValue(toDateSelect, dateArrayToString(dateNow));
+    setAttribute(fromDateSelect, 'value', dateArrayToString(selectedDate));
+    setAttribute(toDateSelect, 'value', dateArrayToString(dateNow));
 };
+
 const dayToMilliseconds = days => days * 24 * 60 * 60 * 1000;
+
 const formattingDate = (date, format) => date.toLocaleDateString('en-En', format);
+
 const showSelectDate = (element, date) => {
     element.innerHTML = formattingDate(date, formatDate.forUser)
 };
+
 const showDateRange = (selectValue) => {
     selectedDate = new Date(dateNow - dayToMilliseconds(dateRangePeriod[selectValue]));
     showSelectDate(fromDateElement, selectedDate);
     showSelectDate(toDateElement, dateNow);
     setDateRange(selectValue);
 };
+
 const getDateArray = date => formattingDate(date, formatDate.forValue).split('/');
+
 const getDateValue = element => element.value;
+
 const changeDateArray = array => array.unshift(array.pop());
+
 const dateArrayToString = array => {
     let dateArray = getDateArray(array);
     changeDateArray(dateArray);
     return dateArray.join('-');
 };
-const setDateValue = (element, value) => element.setAttribute('value', value);
-const setSelectDate = (element, date, message) => {
-    return element.innerHTML = date ? formattingDate(new Date(date), formatDate.forUser) : `${message} date`;
+
+const setAttribute = (element, attribute, value) => element.setAttribute(attribute, value);
+
+const setSelectedDate = (element, date, message) => element.innerHTML = date ? formattingDate(new Date(date), formatDate.forUser) : `${message} date`;
+
+const setDiapazoneDate = (element, attribute, ) => {
+
 };
 
 selectDateRangeElement.onchange = () => showDateRange(selectDateRangeElement.value);
-fromDateSelect.onchange = () => setSelectDate(fromDateElement, getDateValue(fromDateSelect), 'From');
-toDateSelect.onchange = () => setSelectDate(toDateElement, getDateValue(toDateSelect), 'To');
+fromDateSelect.onchange = () => {
+    setSelectedDate(fromDateElement, getDateValue(fromDateSelect), 'From');
+    setAttribute(toDateSelect,'min', getDateValue(fromDateSelect));
+};
+toDateSelect.onchange = () => {
+    setSelectedDate(toDateElement, getDateValue(toDateSelect), 'To');
+    setAttribute(fromDateSelect,'max', getDateValue(toDateSelect));
+};
