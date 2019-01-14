@@ -12,33 +12,37 @@
     <p class="date-period">From date - To date</p>
 
     <div class="date-picker-container">
-        <select id="static-date-range" class="static-date-range">
-            <option value="custom">Custom</option>
-            <option value="today">Today</option>
-            <option value="yesterday">Yesterday</option>
-            <option value="last7Days">Last 7 days</option>
-            <option value="last30Days">Last 30 days</option>
-            <option value="last90Days">Last 90 days</option>
-        </select>
+        <div class="select-container">
+            <select id="static-date-range" class="static-date-range">
+                <option value="custom">Custom</option>
+                <option value="today">Today</option>
+                <option value="yesterday">Yesterday</option>
+                <option value="last7Days">Last 7 days</option>
+                <option value="last30Days">Last 30 days</option>
+                <option value="last90Days">Last 90 days</option>
+            </select>
+        </div>
 
-        <select class="timezone">
-            <option>Timezone</option>
-        </select>
+        <div class="select-container">
+            <select class="timezone">
+                <option>Timezone</option>
+            </select>
+        </div>
 
         <div class="select-date-range">
-            <div>
-                <label for="from-date">From</label>
-                <input type="date" id="from-date">
+            <div class="input-container">
+                <label  for="from-date">From</label>
+                <input  type="date" id="from-date">
             </div>
 
-            <div>
+            <div class="input-container">
                 <label for="to-date">To</label>
                 <input type="date" id="to-date">
             </div>
         </div>
         <div class="buttons">
-            <button class="cancel">cancel</button>
-            <button class="apply">apply</button>
+            <button class="button cancel">cancel</button>
+            <button class="button apply">apply</button>
         </div>
     </div>
 </div>

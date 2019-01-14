@@ -1,5 +1,7 @@
 body {
   margin: 0;
+  padding: 20px 0 0 20px;
+  font: normal 18px Helvetica, Arial;
 }
 
 * {
@@ -7,18 +9,58 @@ body {
 }
 
 .date-range-picker {
-  max-width: 400px;
   display: flex;
   flex-direction: column;
-  margin: 20px;
-  border: 1px solid red;
-}
+  max-width: 500px;
+  width: 100%;
+  border: 2px solid slategray;
+  background-color: #fbfbfb;
 
-.date-period {
-  min-height: 40px;
-  margin: 0;
-  padding: 10px;
-  border-bottom: 1px solid red;
+  .date-period {
+    min-height: 40px;
+    margin: 0;
+    padding: 10px;
+    border-bottom: 2px solid slategray;
+  }
+
+  input,
+  .select-container {
+    border-radius: 4px;
+    border: solid silver 1px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 5px 15px;
+    font-size: 20px;
+    background-color: #FFFFFF;
+  }
+
+  .select-container {
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      top: 50%;
+      right: 16px;
+      width: 10px;
+      height: 10px;
+      border-style: solid;
+      border-width: 2px;
+      border-color: #9BA6B5 transparent  transparent #9BA6B5;
+      transform: translateY(-80%) rotate(-135deg);
+    }
+  }
+
+  select {
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
 }
 
 .date-picker-container {
@@ -34,34 +76,24 @@ body {
 .select-date-range {
   display: flex;
 
-  div {
-    label {
-      display: block;
-    }
-
-    input {
-      width: 100%;
-    }
-  }
-
-  > * {
+  .input-container {
     flex: 1;
-  }
 
-  > :not(:last-child) {
-    margin-right: 10px;
-  }
-}
+    &:first-child {
+      margin-right: 10px;
+    }
 
-input[type="date"] {
-  &::-webkit-inner-spin-button {
-    display: none;
-  }
+    input[type="date"] {
+      &::-webkit-inner-spin-button {
+        display: none;
+      }
 
-  &::-webkit-calendar-picker-indicator {
-    color: transparent;
-    background: url("icon/icon-calendar.svg") center no-repeat;
-    background-size: 100%;
+      &::-webkit-calendar-picker-indicator {
+        color: transparent;
+        background: url("icon/icon-calendar.svg") center no-repeat;
+        background-size: 100%;
+      }
+    }
   }
 }
 
@@ -71,5 +103,31 @@ input[type="date"] {
 
   > * {
     margin-left: 10px;
+  }
+}
+
+.button {
+  padding: 5px 10px;
+  text-transform: uppercase;
+  background-color: #fff;
+  outline: none;
+
+  &.cancel {
+    border: 2px solid silver;
+    color: silver;
+
+    &:hover {
+      background-color: #EDEEEF;
+    }
+  }
+
+  &.apply {
+    border: none;
+    color: #fff;
+    background-color: red;
+
+    &:hover {
+      background-color: #FF687C;
+    }
   }
 }

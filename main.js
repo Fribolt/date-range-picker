@@ -1,9 +1,9 @@
 let selectedDate = null;
+const dateNow = new Date();
 const selectDateRangeElement = document.querySelector('#static-date-range');
 const datePeriodElement = document.querySelector('.date-period');
 const fromDateSelect = document.querySelector('#from-date');
 const toDateSelect = document.querySelector('#to-date');
-const dateNow = new Date();
 const dateRangePeriod = {
     'custom': 0,
     'today': 0,
@@ -75,9 +75,10 @@ const setDate = (date, message) => date ? new Date(date) : `${message} date`;
 const updateInputs = () => {
     showSelectedDate();
     selectDateRangeElement.value = 'custom';
-    setDiapason();
 };
 
 selectDateRangeElement.onchange = () => showDateRange(selectDateRangeElement.value);
-fromDateSelect.onchange = () => updateInputs();
-toDateSelect.onchange = () => updateInputs();
+fromDateSelect.onchange  = () => updateInputs();
+fromDateSelect.onblur  = () => setDiapason();
+toDateSelect.onchange  = () => updateInputs();
+toDateSelect.onblur  = () => setDiapason();
