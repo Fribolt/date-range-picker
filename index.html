@@ -9,9 +9,7 @@
 <body>
 
 <div class="date-range-picker">
-    <p class="date-period">
-        <span id="from"></span> <span id="to"></span>
-    </p>
+    <p class="date-period">From date - To date</p>
 
     <div class="date-picker-container">
         <select id="static-date-range" class="static-date-range">
@@ -28,9 +26,15 @@
         </select>
 
         <div class="select-date-range">
-            <input type="date" id="from-date">
+            <div>
+                <label for="from-date">From</label>
+                <input type="date" id="from-date">
+            </div>
 
-            <input type="date" id="to-date">
+            <div>
+                <label for="to-date">To</label>
+                <input type="date" id="to-date">
+            </div>
         </div>
         <div class="buttons">
             <button class="cancel">cancel</button>

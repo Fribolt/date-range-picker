@@ -26,6 +26,10 @@ body {
 
 .select-date-range {
   display: flex; }
+  .select-date-range div label {
+    display: block; }
+  .select-date-range div input {
+    width: 100%; }
   .select-date-range > * {
     flex: 1; }
   .select-date-range > :not(:last-child) {
